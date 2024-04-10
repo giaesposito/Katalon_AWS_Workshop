@@ -12,7 +12,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    docker.image('katalonstudio/katalon:latest').run('-t --rm -v "$(pwd)":/tmp/project katalonc.sh -projectPath=/tmp/project -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Cura Healthcare" -apikey="9b26b1f9-8b64-4c42-b5d9-1583bf3ae781"')
+                    docker.run('-t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:latest katalonc.sh -projectPath=/tmp/project -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Cura Healthcare" -apikey="9b26b1f9-8b64-4c42-b5d9-1583bf3ae781"')
                 }
             }
         }
